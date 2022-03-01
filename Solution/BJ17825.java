@@ -12,12 +12,10 @@ public class BJ17825 {
 	static class Horse {
 		
 		Node head;
-		int tempIdx;
 
-		public Horse(Node head, int tempIdx) {
+		public Horse(Node head) {
 			super();
 			this.head = head;
-			this.tempIdx = tempIdx;
 		}
 		
 	}
@@ -52,7 +50,7 @@ public class BJ17825 {
 			Arrays.fill(visited, false);
 			
 			for(int i=0; i<4; i++) {
-				horses[i] = new Horse(start, 0);
+				horses[i] = new Horse(start);
 			}
 			
 			for(int i=0; i<10; i++) {
