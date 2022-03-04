@@ -13,16 +13,20 @@ public class BJ7795 {
 	
 	private static int binarySearch(int number) {
 		int left = 0, right = bSize-1;
+		int count = 0;
 		
-		while(left <= right) {
+		while(left < right) {
 			int mid = left + (right - left) / 2;
 			
 			if(number < B[mid]) right = mid;
 			else left = mid + 1;
 		}
 		
-		// if(number == B[right]) return right - 1; // 자기 보다 작은 생물만 먹을 수 있음
-		return right;
+		for(int i=0; i<right+1; i++) {
+			if(number > B[i]) count++;
+		}
+
+		return count;
 	}
 
 	public static void main(String[] args) throws IOException {
