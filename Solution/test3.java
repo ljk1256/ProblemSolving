@@ -1,52 +1,24 @@
 package Solution;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+
 public class test3 {
 
-	public static void main(String[] args) {
-		
-		int[][] arr = new int [3][3];
-		int cnt = 1;
-		for(int i=0; i<3; i++) {
-			for(int j=0; j<3; j++) {
-				arr[i][j] = cnt++;
-			}
-		}
-		
-		char isClockWise = '-';
-		
-		int[][] copy = new int [3][3];
-		for(int i=0; i<3; i++) {
-			System.arraycopy(arr[i], 0, copy[i], 0, 3);
-		}
-		
-		if(isClockWise == '+') { // 시계 방향
-			arr[0][0] = copy[2][0];
-			arr[0][1] = copy[1][0];
-			arr[0][2] = copy[0][0];
-			arr[1][0] = copy[2][1];
-			arr[1][2] = copy[0][1];
-			arr[2][0] = copy[2][2];
-			arr[2][1] = copy[1][2];
-			arr[2][2] = copy[0][2];
-		}
-		
-		else {
-			arr[0][0] = copy[0][2];
-			arr[0][1] = copy[1][2];
-			arr[0][2] = copy[2][2];
-			arr[1][0] = copy[0][1];
-			arr[1][2] = copy[2][1];
-			arr[2][0] = copy[0][0];
-			arr[2][1] = copy[1][0];
-			arr[2][2] = copy[2][0];
-		}
-		
-		for(int i=0; i<3; i++) {
-			for(int j=0; j<3; j++) {
-				System.out.print(arr[i][j]);
-			}
-			System.out.println();
-		}
+	public static void main (String[] args) throws IOException {
+        BufferedReader br = new Bufferdreader(new InputStreamReader(System.in));
+        
+        String input = br.readLine();
+        int[] alphabet = new int [26];
+        
+        for(int i=0; i<input.length(); i++) alphabet[input.charAt(i) - 'a']++;
+        
+        StringBuilder sb = new StringBuilder();
+        
+        for(int i=0; i<26; i++) sb.append(alphabet[i]).append(" ");
+        
+        sb.setLength(sb.length() - 1);
+        System.out.println(sb.toString());
 	}
 
 }
