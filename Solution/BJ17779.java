@@ -45,7 +45,7 @@ public class BJ17779 {
 						for(int q=x+d2, w=y+d2; q<=x+d1+d2; q++, w--) section[q][w] = 5;
 						
 						Queue<int []> queue = new LinkedList<>();
-						queue.offer(new int [] {0, 0});
+						queue.offer(new int [] {0, 0}); // 5번 경게선 꼭지점을 바람개비 모양으로 탐색을 하는게 맞다
 						visited[0][0] = true;
 						
 						while(!queue.isEmpty()) {
