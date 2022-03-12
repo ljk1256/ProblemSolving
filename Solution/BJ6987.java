@@ -12,23 +12,27 @@ public class BJ6987 {
 	static int[] checkLose;
 	
 	private static boolean isMeetCondition() {
-		for(int i=0; i<6; i++) {
-			if(checkWin[i] != checkLose[i]) return false;
+		int winPoint = 0, losePoint = 0;
+		for(int i=1; i<6; i++) {
+			if(checkWin[i] != 0) winPoint += checkWin[i] * (i+1);
+			if(checkLose[i] != 0) losePoint += checkLose[i] * (i+1);
 		}
-		return true;
+		
+		if(winPoint != losePoint) return false;
+		else return true;
 	}
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		StringBuilder answer = new StringBuilder();
-		boolean flag = true;
 		
 		for(int i=0; i<4; i++) {
 			st = new StringTokenizer(br.readLine());
 			HashSet<Integer> drawSet = new HashSet<>();
 			checkWin = new int [6];
 			checkLose = new int [6];
+			boolean flag = true;
 			
 			for(int j=0; j<6; j++) {
 				int win = Integer.parseInt(st.nextToken());
@@ -41,13 +45,13 @@ public class BJ6987 {
 				}
 				
 				else {
-					drawSet.add(j);
-					checkWin[win]++;
-					checkLose[lose]++;
+					if(draw != 0) drawSet.add(j);
+					if(win != 0) checkWin[win]++;
+					if(lose != 0) checkLose[lose]++;
 				}
 			}
 			
-			if(!flag || drawSet.size()/2 != 0 || !isMeetCondition()) answer.append(0).append(" ");
+			if(!flag || drawSet.size()%2 != 0 || !isMeetCondition()) answer.append(0).append(" ");
 			else answer.append(1).append(" ");
 		}
 		
