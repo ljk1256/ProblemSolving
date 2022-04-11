@@ -33,7 +33,7 @@ public class BJ2457 {
 			int E_month = Integer.parseInt(st.nextToken());
 			int E_day = Integer.parseInt(st.nextToken());
 			
-			flowerList.add(new Flower(S_month*100 + S_day, E_month*100 + E_day));
+			flowerList.add(new Flower(S_month*100 + S_day, E_month*100 + E_day)); // 월*100 + 일 로 일수에 가중치를 부여할 수 있다
 		}
 		
 		Collections.sort(flowerList, new Comparator<Flower>() {
