@@ -25,7 +25,7 @@ public class BJ7570 {
 			max = Math.max(dp[tempStudent],max);
 		}
 		
-		System.out.println(N - max);
+		System.out.println(N - max); // 가장 긴 수열 빼고 전부 정렬을 해야함
 	}
 
 }
