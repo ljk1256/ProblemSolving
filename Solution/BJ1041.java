@@ -10,6 +10,9 @@ import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
 public class BJ1041 {
+	
+	// 데이터 선언만 long 형으로 하고 연산 숫자가 int 라면 계산 시점은 int로 계산 한 뒤 long형으로 들어간다 >> 즉, 오버플로우를 막을 수 없다
+	// BigInteger 사용법 익히기
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
